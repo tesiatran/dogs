@@ -28,7 +28,7 @@ var dog_array = [
   {breed: 'sheepdog', rating: 2.8, disposition: 'funny', image:'http://www.dogbreedinfo.com/images26/PolishLowlandSheepdogPONPurebredDogKya3YearsOld6.jpg',description:"The Old English Sheepdog is a large, athletic dog breed with an unmistakable shaggy coat. The Old English Sheepdog was historically a drover, helping farmers drive cattle and sheep to the market. Today, the good-natured Old English Sheepdog enjoys the comfort of home life and still competes in conformation, obedience, agility, and herding trials. He's an adaptable, intelligent dog with an easygoing disposition."
   }
 ];
- 
+
 /************ find_max_dog *********
 * purpose: finds the highest ranked dog and returns its index
 * input: array of dog objects
@@ -49,7 +49,7 @@ function find_max_dog(dog_array){
 }
 /************ display_dogs *********
 * purpose: display dogs by placing them in target element
-* input: 
+* input:
      target_element: element to place dog display into, as a css/jquery selector
      dog_array: array of dog objects
      max_index: the highest rated dog for display purposes
@@ -79,19 +79,19 @@ function display_dogs(target_element, dog_array, max_index)
     });
     var dog_info_div = $('<div>',{
       class: 'dog_info col-sm-8 col-xs-12',
-      
+
     });
- 
+
     var dog_breed_span = $('<span>',{
       class: 'col-md-6 col-sm-12 dog_breed',
       text: dog_breed,
     });
- 
+
     var dog_disposition_span = $('<span>',{
       class: 'col-md-4 col-sm-12 dog_disposition',
       text: dog_quality,
     });
- 
+
     var dog_rating_span = $('<span>',{
       class: 'col-md-2 col-sm-12 dog_rating',
       text: dog_rating
@@ -99,12 +99,12 @@ function display_dogs(target_element, dog_array, max_index)
     dog_info_div.append(dog_breed_span, dog_disposition_span, dog_rating_span);
     dog_box.append(dog_image, dog_info_div);
     dog_container.append(dog_box);
- 
+
   }
 }
 /************ display_one_dog *********
 * purpose: display a single dog within a bootstrap modal
-* input: 
+* input:
      dog: a single dog object
 * returns: none
 */
@@ -112,8 +112,8 @@ function display_one_dog(dog)
 {
   console.log("dog :",dog)
     var modal_element = $('#dog_modal');
- 
- 
+
+
     modal_element.find('.modal-title').text(dog.breed);
     var dog_image = $('<img>',{
       src: dog.image,
@@ -122,16 +122,16 @@ function display_one_dog(dog)
     var dog_info_div = $('<div>',{
       class: 'dog_info',
     });
- 
+
     var dog_disposition_div = $('<div>',{
       class: 'dog_disposition',
       html: '<strong>Quality</strong> '+dog.disposition,
     });
- 
+
     var dog_rating_div = $('<div>',{
       class: 'dog_rating',
       html: '<strong>Rating</strong> '+dog.rating
-    }); 
+    });
     var dog_description_div = $('<div>',{
       class: 'dog_description',
       html: '<strong>Description</strong> '+dog.description
@@ -146,8 +146,8 @@ $(document).ready(function(){
   $('#dog_stats').on('click','.dog_box',function(){
     var this_dog_index = parseInt($(this).attr('dog_id'));
     display_one_dog(dog_array[this_dog_index]);
- 
- 
+
+
   })
 });
   </script>
@@ -157,7 +157,7 @@ $(document).ready(function(){
 </div>
 <div id="dog_modal" class="modal fade" role="dialog">
   <div class="modal-dialog">
- 
+
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
@@ -165,12 +165,12 @@ $(document).ready(function(){
         <h4 class="modal-title text-capitalize"></h4>
       </div>
       <div class="modal-body">
-        
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
- 
+
   </div>
 </div>
